@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Sports Exchange</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fa-solid fa-chart-line text-warning"></i> ProExchange
+      </a>
+      
+      <div class="d-flex align-items-center order-lg-2">
+        <div class="wallet-badge me-2">
+          <i class="fa-solid fa-coins text-warning"></i> <span id="coins">10000.00</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sport-nav">
+    <div class="container">
+      <div class="nav nav-pills" id="sportTabs">
+        <button class="nav-link active" onclick="filterSports('ALL', this)">ALL</button>
+        <button class="nav-link" onclick="filterSports('CRICKET', this)">CRICKET</button>
+        <button class="nav-link" onclick="filterSports('FOOTBALL', this)">FOOTBALL</button>
+        <button class="nav-link" onclick="filterSports('TENNIS', this)">TENNIS</button>
+        <button class="nav-link" onclick="filterSports('BASKETBALL', this)">BASKETBALL</button>
+        <button class="nav-link" onclick="filterSports('LUCKY10', this)">LUCKY 10</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container main-content" id="fixtures">
+    </div>
+
+  <footer class="footer mt-auto py-4">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>About Us</h5>
+          <p class="small text-muted">The best practice platform for sports exchange betting. Learn to trade without risk.</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Rules</a></li>
+            <li><a href="#">My Bets</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <span class="text-muted small">&copy; 2024 ProExchange. All Rights Reserved.</span>
+    </div>
+  </footer>
+
+  <div class="betslip-overlay" id="betslipOverlay" onclick="closeSlip()"></div>
+  <div class="betslip" id="betslip">
+    <div class="betslip-header">
+      <h6 class="m-0" id="betTitle">Match Name</h6>
+      <button type="button" class="btn-close btn-close-white" onclick="closeSlip()"></button>
+    </div>
+    <div class="betslip-body">
+      <div class="d-flex justify-content-between mb-2">
+        <span>Type: <b id="betTypeTag">BACK</b></span>
+        <span>Odds: <b id="betOdds" class="text-warning">0.00</b></span>
+      </div>
+      
+      <input type="number" id="stake" class="form-control" placeholder="Stake Amount">
+      <div id="profitInfo" class="profit-text mt-2"></div>
+
+      <div class="row mt-3">
+        <div class="col-6">
+          <button class="btn btn-secondary w-100" onclick="closeSlip()">Cancel</button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-success w-100 fw-bold" onclick="placeBet()">Place Bet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-controls">
+    <button class="btn btn-sm btn-primary rounded-pill" onclick="settleWin()">Simulate Win</button>
+    <button class="btn btn-sm btn-danger rounded-pill" onclick="settleLoss()">Simulate Loss</button>
+  </div>
+
+  <div id="notification-area" class="notification-area"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

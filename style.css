@@ -1,0 +1,264 @@
+:root {
+  --primary-bg: #f2f4f7;
+  --dark-bg: #1a202c;
+  --card-bg: #ffffff;
+  --back-color: #72bbef; /* Standard Exchange Blue */
+  --lay-color: #faa9ba;  /* Standard Exchange Pink */
+  --text-dark: #2d3436;
+}
+
+body {
+  background-color: var(--primary-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  padding-bottom: 80px; /* Space for footer */
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #111827 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.wallet-badge {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* SPORT TABS */
+.sport-nav {
+  background-color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.sport-nav .nav-link {
+  color: #555;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 8px 20px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.sport-nav .nav-link.active {
+  background-color: #111827;
+  color: #ffc107;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  min-height: 60vh;
+  padding-top: 20px;
+}
+
+.section-title {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* FIXTURE CARD */
+.fixture {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  transition: transform 0.2s;
+  border-left: 5px solid transparent;
+}
+
+.fixture:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.fixture-info b {
+  font-size: 1rem;
+  color: #111;
+}
+
+.fixture-info small {
+  color: #777;
+}
+
+/* ODDS BUTTONS */
+.odds {
+  display: flex;
+  gap: 8px;
+}
+
+.odds button {
+  border: none;
+  width: 60px;
+  height: 45px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.odds button:hover {
+  opacity: 0.8;
+}
+
+.odds .back {
+  background-color: var(--back-color);
+  color: #004a7c;
+}
+
+.odds .lay {
+  background-color: var(--lay-color);
+  color: #7c0000;
+}
+
+/* BET SLIP */
+.betslip-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 1040;
+}
+
+.betslip {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1050;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.betslip-header {
+  background: #111827;
+  color: white;
+  padding: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.betslip-body {
+  padding: 20px;
+}
+
+.profit-text {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* FOOTER */
+.footer {
+  background-color: #1f2937;
+  color: #9ca3af;
+  margin-top: 50px;
+}
+
+.footer a {
+  color: #d1d5db;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  font-size: 1.2rem;
+}
+
+/* Floating Admin Controls */
+.admin-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+}
+
+/* Mobile Responsive */
+@media (min-width: 768px) {
+  .betslip {
+    width: 350px;
+    left: auto;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 10px;
+  }
+}
+
+/* --- NEW: TOAST NOTIFICATIONS --- */
+.notification-area {
+  position: fixed;
+  top: 80px; /* Below navbar */
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast-msg {
+  background: white;
+  color: #333;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  min-width: 280px;
+  animation: slideIn 0.3s ease-out forwards;
+  border-left: 5px solid #333;
+  font-size: 0.95rem;
+}
+
+.toast-msg.success { border-left-color: #28a745; }
+.toast-msg.error { border-left-color: #dc3545; }
+
+.toast-msg i { margin-right: 12px; font-size: 1.2rem; }
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateY(-20px); }
+}
